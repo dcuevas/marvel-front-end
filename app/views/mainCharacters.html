@@ -16,13 +16,15 @@
 
     <section id="body" class="container">
 
-        <section id="main" class="col-md-8 col-sm-9" >
-
-            <ul class="list-unstyled" >
-                <li ng-repeat="character in characters">
-                    <div class="row session">
+        <section id="main" class="col-md-12 col-sm-8">
+            <ul class="row list-unstyled list-inline" >
+                <li ng-repeat="character in characters" class="col-md-4">
+                    <div class="session">
                         <h4>{{character.name}}</h4>
-                        <p>{{character.description}}</p>
+                        <p>
+                            <img class="img-thumbnail img-responsive" ng-src="{{character.thumbnail.path}}/landscape_large.{{character.thumbnail.extension}}">
+                        </p>
+                        <p class="text-left">{{character.description}}</p>
                     </div>
                 </li>
             </ul>

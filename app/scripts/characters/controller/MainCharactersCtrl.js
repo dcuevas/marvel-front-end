@@ -3,7 +3,7 @@
 angular.module('marvelFrontEndApp').controller('MainCharactersCtrl', function ($scope, $log, settings ,characterData) {
         $scope.characters = [];
 
-        _.each(settings.charactersHome, getCharacter);
+        _.each(getRandomCharacters(), getCharacter);
 
         function getCharacter(name) {
             var characterPromise = characterData.getCharacterByName(name);
@@ -16,6 +16,19 @@ angular.module('marvelFrontEndApp').controller('MainCharactersCtrl', function ($
                     $log.warn(response);
                 }
             );
+        }
+
+        function getRandomCharacters() {
+            var randomCharacters = [];
+
+            while (randomCharacters.length < settings.numberOfCharactersHome) {
+                var index = _.random(0, settings.charactersHome.length);
+                if (!_.contains(randomCharacters, settings.charactersHome[index])) {
+                    randomCharacters.push(settings.charactersHome[index]);
+                }
+            }
+
+            return randomCharacters;
         }
     }
 );
