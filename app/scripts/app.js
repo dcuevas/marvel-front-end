@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('marvelFrontEndApp', [
-  'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute'
@@ -9,8 +8,8 @@ angular.module('marvelFrontEndApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/mainCharacters.html',
+        controller: 'MainCharactersCtrl'
       })
       .otherwise({
         redirectTo: '/'
