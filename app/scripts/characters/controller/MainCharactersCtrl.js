@@ -22,7 +22,7 @@ angular.module('marvelFrontEndApp').controller('MainCharactersCtrl', function ($
             var randomCharacters = [];
 
             while (randomCharacters.length < settings.numberOfCharactersHome) {
-                var index = _.random(0, settings.charactersHome.length);
+                var index = _.random(0, settings.charactersHome.length-1);
                 if (!_.contains(randomCharacters, settings.charactersHome[index])) {
                     randomCharacters.push(settings.charactersHome[index]);
                 }
